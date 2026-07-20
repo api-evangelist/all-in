@@ -1,0 +1,35 @@
+generated: '2026-07-17'
+method: searched
+source: https://allinfood.com/.well-known/openid-configuration + oauth-authorization-server (live)
+host: allinfood.com
+summary: >-
+  All In Food's storefront delegates customer identity to Shopify's Customer
+  Account OAuth 2.0 / OpenID Connect authorization server. Agent commerce
+  actions run over the UCP MCP endpoint; end payment is buyer-approved via
+  Shop Pay. No first-party API keys or developer auth are published.
+schemes:
+- type: oauth2
+  flow: authorization_code
+  standard: OpenID Connect (OIDC)
+  issuer: https://shopify.com/authentication/85598339372
+  authorization_endpoint: https://shopify.com/authentication/85598339372/oauth/authorize
+  token_endpoint: https://shopify.com/authentication/85598339372/oauth/token
+  end_session_endpoint: https://shopify.com/authentication/85598339372/logout
+  jwks_uri: https://shopify.com/authentication/85598339372/.well-known/jwks.json
+  pkce: S256
+  token_endpoint_auth_methods:
+  - client_secret_basic
+  grant_types:
+  - authorization_code
+  - refresh_token
+  - urn:ietf:params:oauth:grant-type:jwt-bearer
+  id_token_signing_alg:
+  - RS256
+  scopes:
+  - openid
+  - email
+  - customer-account-api:full
+  - customer-account-mcp-api:full
+notes:
+- Identity provider is Shopify Customer Accounts, published on the store's own domain via .well-known.
+- The customer-account-mcp-api:full scope authorizes the MCP-based customer/commerce surface.
