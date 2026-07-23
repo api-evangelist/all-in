@@ -1,0 +1,18 @@
+generated: '2026-07-17'
+method: searched
+source: https://allinfood.com/agents.md (verbatim, linked from sitemap_agentic_discovery.xml)
+skills:
+- file: all-in-agents.md
+  name: All In Food — Agent Instructions (AGENTS.md)
+  kind: provider-published
+  description: >-
+    Canonical agent-facing description of the All In Food Shopify store: how
+    personal-shopping agents should transact via the Shop skill, the UCP
+    discovery + hosted MCP endpoint, the buyer-approval invariant on payment,
+    and read-only product/collection JSON browsing endpoints.
+  surfaces:
+  - GET /.well-known/ucp
+  - POST /api/ucp/mcp
+  - GET /products/{handle}.json
+  - GET /collections/{handle}/products.json
+  - GET /search?q={query}&type=product

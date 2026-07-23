@@ -1,20 +1,81 @@
 aid: all-in
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: medium
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/all-in.png
 name: All In
-description: All In is a company surfaced as a portfolio company of obvious-ventures and added to the
-  API Evangelist network as a stub for enrichment. This profile is a lead awaiting the enrichment pipeline.
+description: >-
+  All In Food makes organic, gluten-free nut & seed snack bars on a social-impact
+  model — every bar purchased helps fund local nutritious-food-access initiatives
+  such as food banks, community gardens, and meal programs across the U.S. The
+  company is backed by Obvious Ventures (a reported $4M raise) and sells through
+  Sprouts and Starbucks as well as its own online store. While All In is a
+  consumer-packaged-goods brand rather than a developer platform, its Shopify
+  storefront exposes a genuine agent-native commerce surface: a canonical
+  agents.md document, a Universal Commerce Protocol (UCP) merchant profile at
+  /.well-known/ucp, a live hosted MCP endpoint at /api/ucp/mcp for agent-driven
+  catalog search, cart, checkout and fulfillment, and Shopify Customer Account
+  OpenID Connect for buyer identity. Checkout always requires explicit human
+  buyer approval on payment.
 url: https://raw.githubusercontent.com/api-evangelist/all-in/refs/heads/main/apis.yml
 x-type: company
 x-source: vc-portfolio
 x-backed-by:
 - obvious-ventures
-x-tier: stub
-x-tier-reason: portfolio-lead
+x-tier: enriched
+x-tier-reason: agent-commerce-surface-found
+x-platform: shopify
 specificationVersion: '0.20'
 created: '2026-07-17'
 modified: '2026-07-17'
 tags:
 - Company
-apis: []
+- Food
+- Snacks
+- Nutrition
+- Consumer Packaged Goods
+- Commerce
+- Agent Commerce
+- Shopify
+- MCP
+apis:
+- name: All In Food Agent Commerce (UCP)
+  description: >-
+    Agent-native commerce surface on the All In Food Shopify storefront: a UCP
+    merchant profile, a hosted MCP endpoint for catalog/cart/checkout, Customer
+    Account OIDC, and a canonical agents.md instruction document. Checkout
+    requires contemporaneous human buyer approval.
+  humanURL: https://allinfood.com/agents.md
+  baseURL: https://allinfood.com
+  tags:
+  - Agent Commerce
+  - UCP
+  - MCP
+  - Shopify
+  properties:
+  - type: MCPServer
+    url: mcp/all-in-mcp.yml
+  - type: WellKnown
+    url: well-known/all-in-well-known.yml
+  - type: Authentication
+    url: authentication/all-in-authentication.yml
+  - type: OAuthScopes
+    url: scopes/all-in-scopes.yml
+  - type: Conformance
+    url: conformance/all-in-conformance.yml
+  - type: AgentSkill
+    url: skills/_index.yml
+  - type: LLMsTxt
+    url: llms/all-in-llms.txt
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
@@ -23,3 +84,24 @@ maintainers:
 common:
 - type: Website
   url: https://allinfood.com
+- type: Blog
+  url: https://allinfood.com/blogs/news
+- type: Support
+  url: https://allinfood.com/pages/faqs
+- type: PrivacyPolicy
+  url: https://allinfood.com/policies/privacy-policy
+- type: TermsOfService
+  url: https://allinfood.com/policies/terms-of-service
+- type: DomainSecurity
+  url: security/all-in-domain-security.yml
+- type: WellKnown
+  url: well-known/all-in-well-known.yml
+- type: AgentSkill
+  url: skills/_index.yml
+- type: LLMsTxt
+  url: llms/all-in-llms.txt
+x-enrichment:
+  date: '2026-07-19'
+  status: backfilled
+  pass: local-v1
+  note: backfilled from .gitignore signal + verified work evidence

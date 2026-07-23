@@ -1,0 +1,15 @@
+generated: '2026-07-17'
+method: searched
+source: https://allinfood.com/.well-known/openid-configuration (scopes_supported, live)
+host: allinfood.com
+authorization_server: https://shopify.com/authentication/85598339372
+standard: OpenID Connect / OAuth 2.0 (Shopify Customer Accounts)
+scopes:
+- name: openid
+  description: OpenID Connect authentication; issue an ID token identifying the customer.
+- name: email
+  description: Access the customer's email address and email_verified claim.
+- name: customer-account-api:full
+  description: Full access to the Shopify Customer Account API on behalf of the signed-in customer.
+- name: customer-account-mcp-api:full
+  description: Full access to the customer-account MCP API surface for agent-driven customer/commerce actions.

@@ -1,0 +1,29 @@
+generated: '2026-07-17'
+method: searched
+source: live probes of allinfood.com agent-commerce + OAuth surfaces
+host: allinfood.com
+standards:
+- id: oauth2
+  conforms: true
+  evidence: /.well-known/oauth-authorization-server publishes RFC 8414 authorization server metadata.
+- id: oidc
+  conforms: true
+  evidence: /.well-known/openid-configuration with RS256 id_token, PKCE S256, authorization_code flow.
+- id: pkce
+  conforms: true
+  evidence: code_challenge_methods_supported=[S256] in the OIDC discovery document.
+- id: ucp
+  conforms: true
+  evidence: /.well-known/ucp advertises Universal Commerce Protocol versions 2026-04-08 and 2026-01-23.
+- id: mcp
+  conforms: true
+  evidence: Hosted MCP endpoint at /api/ucp/mcp (JSON-RPC 2.0) for agent-driven shopping.
+- id: agents-md
+  conforms: true
+  evidence: Canonical /agents.md agent-instructions document linked from sitemap_agentic_discovery.xml.
+- id: fapi
+  conforms: false
+  evidence: No FAPI profile advertised; client_secret_basic + public clients only.
+- id: rfc9457
+  conforms: false
+  evidence: No application/problem+json error catalog observed on the storefront surfaces.

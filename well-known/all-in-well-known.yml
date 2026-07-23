@@ -1,0 +1,30 @@
+generated: '2026-07-17'
+method: searched
+source: live probes of https://allinfood.com/.well-known/* and agent-discovery endpoints
+host: allinfood.com
+endpoints:
+- path: /.well-known/ucp
+  status: 200
+  file: all-in-ucp.json
+  note: Universal Commerce Protocol (UCP) merchant profile — supported versions, service endpoints, capabilities, payment handlers
+- path: /.well-known/openid-configuration
+  status: 200
+  file: all-in-openid-configuration.json
+  note: Shopify Customer Account OIDC configuration (issuer shopify.com/authentication/85598339372)
+- path: /.well-known/oauth-authorization-server
+  status: 200
+  file: all-in-oauth-authorization-server.json
+  note: OAuth 2.0 Authorization Server metadata (mirrors the OIDC config)
+- path: /.well-known/security.txt
+  status: 404
+  file: null
+- path: /.well-known/api-catalog
+  status: 404
+  file: null
+- path: /.well-known/ai-plugin.json
+  status: 404
+  file: null
+- path: /agents.md
+  status: 200
+  file: ../skills/all-in-agents.md
+  note: Canonical agent-facing store description (AGENTS.md style) — saved under skills/
