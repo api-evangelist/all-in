@@ -2,14 +2,13 @@ generated: '2026-07-17'
 method: searched
 source: https://allinfood.com/agents.md + https://allinfood.com/.well-known/ucp (live)
 name: All In Food Agent Commerce (UCP)
-status: hosted
+status: published
+status_raw: hosted
 transport: mcp
 platform: shopify
-description: >-
-  All In Food's Shopify storefront implements the Universal Commerce Protocol
-  (UCP) for agent-driven commerce and exposes a live, hosted MCP endpoint.
-  Agents discover capabilities at /.well-known/ucp, then drive catalog search,
-  cart, checkout, and fulfillment over MCP. Checkout requires contemporaneous
+description: All In Food's Shopify storefront implements the Universal Commerce Protocol (UCP) for agent-driven
+  commerce and exposes a live, hosted MCP endpoint. Agents discover capabilities at /.well-known/ucp,
+  then drive catalog search, cart, checkout, and fulfillment over MCP. Checkout requires contemporaneous
   human buyer approval on every payment.
 endpoints:
   mcp: https://allinfood.com/api/ucp/mcp
@@ -20,8 +19,6 @@ ucp_versions:
 - '2026-01-23'
 spec: https://ucp.dev/2026-04-08/specification/overview/
 schema: https://ucp.dev/2026-04-08/services/shopping/mcp.openrpc.json
-# tools/list requires a valid agent profile URI (endpoint returned 422 without one);
-# the following flow is documented verbatim in /agents.md and the UCP capabilities profile.
 capabilities:
 - dev.ucp.shopping.catalog.search
 - dev.ucp.shopping.catalog.lookup
@@ -53,3 +50,9 @@ notes:
 - Checkout requires human approval; agents must not complete payment without explicit buyer consent.
 - MCP endpoint is rate-limited per IP (back off on 429).
 - Shop skill (https://shop.app/SKILL.md) is the recommended path for personal-shopping agents.
+deployment:
+  mode: unclear
+  verified: searched
+  tools: 5
+  checked: '2026-08-12'
+  source: catalog MCP census
