@@ -55,6 +55,16 @@ tags:
 - Nutrition
 - Consumer Packaged Goods
 - Commerce
+- Agentic Commerce
+- Shopify
+- MCP
+tags_raw:
+- Company
+- Food
+- Snacks
+- Nutrition
+- Consumer Packaged Goods
+- Commerce
 - Agent Commerce
 - Shopify
 - MCP
@@ -68,6 +78,11 @@ apis:
   humanURL: https://allinfood.com/agents.md
   baseURL: https://allinfood.com
   tags:
+  - Agentic Commerce
+  - Universal Commerce Protocol
+  - MCP
+  - Shopify
+  tags_raw:
   - Agent Commerce
   - UCP
   - MCP
