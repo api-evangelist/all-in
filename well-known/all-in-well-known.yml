@@ -6,7 +6,8 @@ endpoints:
 - path: /.well-known/ucp
   status: 200
   file: all-in-ucp.json
-  note: Universal Commerce Protocol (UCP) merchant profile — supported versions, service endpoints, capabilities, payment handlers
+  note: Universal Commerce Protocol (UCP) merchant profile — supported versions, service endpoints, capabilities,
+    payment handlers
 - path: /.well-known/openid-configuration
   status: 200
   file: all-in-openid-configuration.json
@@ -28,3 +29,26 @@ endpoints:
   status: 200
   file: ../skills/all-in-agents.md
   note: Canonical agent-facing store description (AGENTS.md style) — saved under skills/
+hosts:
+- host: allinfood.com
+  documents:
+  - path: /.well-known/ucp
+    status: 200
+    file: all-in-ucp.json
+    note: Universal Commerce Protocol (UCP) merchant profile — supported versions, service endpoints,
+      capabilities, payment handlers
+  - path: /.well-known/openid-configuration
+    status: 200
+    file: all-in-openid-configuration.json
+    note: Shopify Customer Account OIDC configuration (issuer shopify.com/authentication/85598339372)
+  - path: /.well-known/oauth-authorization-server
+    status: 200
+    file: all-in-oauth-authorization-server.json
+    note: OAuth 2.0 Authorization Server metadata (mirrors the OIDC config)
+x-shape-fix:
+  converted: '2026-08-20'
+  from: endpoints
+  note: Rewritten into hosts[] -> documents[], the only shape well_known_docs() in score.rb reads. A served
+    .well-known surface recorded in any other shape scores as absent. Promoted ONLY the 2xx rows out of
+    the probe log; non-2xx probes are real negative results and were left in place, not converted into
+    documents.
