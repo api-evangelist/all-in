@@ -76,7 +76,6 @@ apis:
     Account OIDC, and a canonical agents.md instruction document. Checkout
     requires contemporaneous human buyer approval.
   humanURL: https://allinfood.com/agents.md
-  baseURL: https://allinfood.com
   tags:
   - Agentic Commerce
   - Universal Commerce Protocol
@@ -102,6 +101,9 @@ apis:
     url: skills/_index.yml
   - type: LLMsTxt
     url: llms/all-in-llms.txt
+  x-surface: platform-generated
+  x-platform: shopify
+  x-platform-surface: ucp
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
